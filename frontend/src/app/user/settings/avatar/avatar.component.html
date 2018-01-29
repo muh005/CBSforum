@@ -1,0 +1,15 @@
+<div class="main">
+  <div class="originalAvatar">
+    <span>Portrait</span>
+    <img height="70" width="70" src="{{serverUrl}}/img/{{userService?.userInfo?.avatar}}">
+  </div>
+  <div class="newNvatar">
+    <span>Please select a new image!</span>
+    <input type="file" name="newNvatar" #newNvatar (click)="valueChange()" (change)="valueChange()">
+  </div>
+  <button class="sumbit" (click)="uploadAvatar(newNvatar.files[0])">确认</button>
+  <div *ngIf="avatarErrorMsg" class="warning">{{avatarErrorMsg}}</div>
+  <div *ngIf="msg" class="msg">
+    {{ msg }}
+  </div>
+</div>

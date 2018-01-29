@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="panel user" *ngIf="userService?.isLogin">
+    <div class="topInfo">
+      <div class="avatar_name">
+        <a routerLink="/user/{{userService?.userInfo?._id}}/article" class="avatar">
+          <img height="50" width="50" src="{{serverUrl}}/img/{{userService?.userInfo?.avatar}}">
+        </a>
+        <a routerLink="/user/{{userService?.userInfo?._id}}/article">
+          {{ userService?.userInfo?.name }}
+        </a>
+      </div>
+      <span class="bio" *ngIf="userService?.userInfo?.bio">
+      " {{ userService?.userInfo?.bio }} "
+      </span>
+      <span class="bio" *ngIf="!userService?.userInfo?.bio">
+      " This one says nothing cause he is lazy… "
+    </span>
+    </div>
+    <div class="countInfo">
+      <a routerLink="/user/{{userService?.userInfo._id}}/article">
+        <span>Article </span>{{userArticlesCount}}
+      </a>
+      <a routerLink="/user/{{userService?.userInfo._id}}/like">
+        <span>Like </span>{{userlikesCount}}
+      </a>
+      <a class="receivedLikesCount">
+        <span>Inspire </span>{{userReceivedlikesCount}}
+      </a>
+    </div>
+  </div>
+  <div class="panel" *ngIf="!userService?.isLogin">
+    <div class="info">
+      <span>
+        CBS Forum
+      </span>
+    </div>
+    <div class="enter">
+      You can
+      <a routerLink="/user/register">
+        <span >register</span>
+      </a>or
+      <a routerLink="/user/login">
+        <span >Login</span>
+      </a>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="createArticle" >
+      <a routerLink="/article/write">
+        <i class = "fa fa-pencil-square-o fa-lg"></i>
+        <span>New post</span>
+      </a>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,42 @@
+<div class="wrapper">
+  <div class="panel author">
+    <div class="topInfo">
+      <div class="avatar_name">
+        <a routerLink="/user/{{author?._id}}/article" class="avatar">
+          <img height="50" width="50" src="{{serverUrl}}/img/{{author?.avatar}}">
+        </a>
+        <a routerLink="/user/{{author?._id}}/article">
+          <span class="name">{{ author?.name }}</span>
+          <span class="tag" *ngIf="_id !== author?._id">Arthor</span>
+        </a>
+      </div>
+      <span class="bio">
+      " {{ author?.bio }} "
+      </span>
+    </div>
+    <div class="countInfo">
+      <a routerLink="/user/{{author?._id}}/article">
+        <span>Article </span>
+        <span class="darkColor">{{articlesCount}}</span>
+      </a>
+      <a routerLink="/user/{{author?._id}}/like" *ngIf="_id === author?._id">
+        <span>Like </span>
+        <span class="darkColor">{{likesCount}}</span>
+      </a>
+      <a class="receivedLikesCount">
+        <span>Inspiration </span>
+        <span *ngIf="receivedlikesCount > 0" class="darkColor">{{receivedlikesCount}}</span>
+      </a>
+      </div>
+  </div>
+
+
+  <div class="panel">
+    <div class="createArticle" >
+      <a routerLink="/article/write">
+        <i class = "fa fa-pencil-square-o fa-lg"></i>
+        <span>New post</span>
+      </a>
+    </div>
+  </div>
+</div>

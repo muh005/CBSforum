@@ -1,0 +1,12 @@
+<div class="otherArticles">
+  <p class="info">
+    Articles from the author
+  </p>
+  <span *ngIf="otherArticles?.length === 0" class="none">None</span>
+  <div class="title" *ngIf="otherArticles?.length > 0">
+    <div *ngFor="let article of otherArticles" class="item">
+      <a routerLink="/article/{{article._id}}">{{ article?.title}}</a>
+    </div>
+  </div>
+</div>
+

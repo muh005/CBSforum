@@ -1,0 +1,30 @@
+<navbar></navbar>
+<!--<div class="regiter">-->
+    <div class="wrapper">
+      <!--<h2>注册</h2>-->
+      <div class="input" [class.error]="errorMsg1">
+        <input type = "text" placeholder="Username" [(ngModel)]="username" (ngModelChange)="valueChange()" (click)="valueChange()" name="username">
+        <i class="fa fa-user fa-2x"></i>
+      </div >
+      <div *ngIf="errorMsg1" class="warning">{{errorMsg1}}</div>
+      <div class="input">
+        <input type = "password" placeholder="Password" [(ngModel)]="newPassword" (ngModelChange)="valueChange()" (click)="valueChange()" name="newPassword">
+        <i class="fa fa-key fa-2x"></i>
+      </div>
+      <div class="input" [class.error]="errorMsg2">
+        <input type = "password" placeholder="Confirm password" [(ngModel)]="repeatPassword" (ngModelChange)="valueChange()" (click)="valueChange()" name="repeatPassword">
+        <i class="fa fa-key fa-2x"></i>
+      </div>
+      <div *ngIf="errorMsg2" class="warning">{{errorMsg2}}</div>
+      <div>
+        <button type="button" (click)="register()" class="sumbit" [disabled]="errorMsg1 || errorMsg2">Register</button>
+      </div>
+      <div class="hasAcount">
+        <span>Account?</span>
+        <a routerLink="/user/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Login</a>
+      </div>
+      <div *ngIf="registerResult" class="registerResult">
+          {{ alert?.msg }}
+      </div>
+    </div>
+<!--</div>-->

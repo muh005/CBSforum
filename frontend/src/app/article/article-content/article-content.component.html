@@ -1,0 +1,79 @@
+<navbar></navbar>
+
+<div class="main">
+<div class="wrapper">
+  <div class="sidebar">
+    <author-sidebar [author]="article?.author" [articlesCount]="otherArticles?.length+1" [receivedlikesCount]="authorReceivedlikesCount"></author-sidebar>
+    <other-articles [otherArticles]="otherArticles"></other-articles>
+  </div>
+  <div class="article">
+    <div class="header">
+      <span class="title">{{article?.title}}</span>
+      <div class="articleInfo">
+        <span>
+          Author: <a routerLink="/user/{{article?.author._id}}/article">{{article?.author.name }}</a>
+        </span>
+        <span class="dot">Post {{article?.created_at }}</span>
+        <span class="dot">{{article?.pv}} times of review</span>
+        <span class="dot" *ngIf="commentsCount > 0">{{commentsCount}Comment</span>
+        <span class="dot" *ngIf="commentsCount === 0">No comment</span>
+        <span class="dot" *ngIf="likes?.length > 0">{{likes?.length}}Like</span>
+      </div>
+    </div>
+    <div [innerHTML]="html" class="html"></div>
+    <div class="likeBtn" [class.lighten]="likePassed">
+      <a href="javascript:void(0);" (click)="like(article)">
+        <i class="fa fa-heart-o fa-lg" *ngIf="!likePassed"></i>
+        <i class="fa fa-heart fa-lg" *ngIf="likePassed"></i>
+        <span>Like</span> <span class="dot" *ngIf="likes?.length > 0">{{likes?.length}}</span>
+      </a>
+    </div>
+      <span *ngIf="article?.updated_at" class="updated_at"> Update when{{article?.updated_at}}</span>
+    <div class="btn-group " dropdown container="body" *ngIf="userService.isLogin && userService?.userInfo?._id === article?.author?._id">
+      <a href="javascript:void(0);">
+        <i dropdownToggle class="fa fa-ellipsis-h" ></i>
+      </a>
+      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right" role="menu">
+        <li role="menuitem">
+          <a class="dropdown-item" routerLink="/article/{{article._id}}/edit">
+            <i class = "fa fa-pencil"></i> Edit
+          </a>
+        </li>
+        <li role="menuitem">
+          <a class="dropdown-item" href="javascript:void(0);" (click)="deleteArticle()">
+            <i class = "fa fa-trash-o"></i> Delete
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="commentlist">
+    <comment-list [commentlist]="comments" [commentsCount]="commentsCount" [articleAuthor]="article?.author"
+                  (onPublishReply)="publishReply($event)" (onDelete)="deleteComment($event)" (onVote)="vote($event)"></comment-list>
+    <div class="page" *ngIf="commentsCount > 0">
+      <pagination [activePage]="activeCommentsPage" [lastPage]="lastPage" (onPrevPage)="prevPage()" (onNextPage)="nextPage()"></pagination>
+    </div>
+  </div>
+  <div class="comment">
+    <div class="info">
+      <i class="fa fa-commenting-o fa-lg"></i>
+      <span>Let me say something</span>
+    </div>
+    <div class="content">
+      <textarea [(ngModel)]="commentValue" placeholder="Enter here to reply..." (ngModelChange)="valueChange()" (click)="valueChange()"></textarea>
+      <div *ngIf="errorMsg" class="warning">
+        {{errorMsg}}
+      </div>
+      <div *ngIf="commentPublishResult" class="commentPublishResult">
+          {{ alert?.msg }}
+      </div>
+      <button class="sumbit" (click)="publishComment()">Reply</button>
+    </div>
+  </div>
+</div>
+</div>
+<div class="footer">
+  <div class="footer-inner">
+    <footer></footer>
+  </div>
+</div>

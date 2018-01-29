@@ -1,0 +1,30 @@
+.otherArticles {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px 0 rgba(35,35,38,0.25);
+  margin-bottom: 15px;
+}
+p.info {
+  padding: 10px;
+  margin: 0;
+  border-radius: 3px 3px 0 0;
+  /*background-color: #f6f6f6;*/
+  border-bottom: 1px solid #DDD;
+}
+.none {
+  display: block;
+  padding: 10px;
+}
+.title {
+  padding: 10px;
+}
+.title .item {
+  margin-bottom: 5px;
+}
+.title .item a {
+  color: #556;
+}
+.title .item a:hover {
+  color: #000;
+  border-bottom: 1px solid #000;
+}

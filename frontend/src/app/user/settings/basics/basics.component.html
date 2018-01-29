@@ -1,0 +1,26 @@
+<div class="main">
+  <div class="item">
+    <span>Username</span> {{userService?.userInfo?.name}}
+  </div>
+  <div class="item">
+    <span>Signiture</span>
+    <input type="text" [(ngModel)]="bio"  (ngModelChange)="valueChange()" (click)="valueChange()" name="bio">
+    <div *ngIf="bioErrorMsg" class="warning">{{bioErrorMsg}}</div>
+  </div>
+  <div class="item">
+    <span>Github</span>
+    <input type="text" [(ngModel)]="github" (ngModelChange)="valueChange()" (click)="valueChange()">
+  </div>
+  <div class="item">
+    <span>Individual links</span>
+    <input type="text" [(ngModel)]="website" (ngModelChange)="valueChange()" (click)="valueChange()">
+  </div>
+  <div class="item">
+    <span>Email</span>
+    <input type="text" [(ngModel)]="email" (ngModelChange)="valueChange()" (click)="valueChange()">
+  </div>
+  <button class="sumbit" (click)="changeBasics()">Save</button>
+  <div *ngIf="saveResult" class="saveResult">
+      {{ alert?.msg }}
+  </div>
+</div>

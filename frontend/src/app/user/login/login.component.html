@@ -1,0 +1,24 @@
+<navbar></navbar>
+    <div class="wrapper">
+      <div class="input" [class.error]="errorMsg1">
+        <input type = "text" placeholder="Username" [(ngModel)]="username" (ngModelChange)="valueChange()" (click)="valueChange()" name="username">
+        <i class="fa fa-user fa-2x"></i>
+      </div >
+      <div *ngIf="errorMsg1" class="warning">{{errorMsg1}}</div>
+      <div class="input" [class.error]="errorMsg2">
+        <input type = "password" placeholder="Password" [(ngModel)]="password" (ngModelChange)="valueChange()" (click)="valueChange()" name="password">
+        <i class="fa fa-key fa-2x"></i>
+      </div>
+      <div *ngIf="errorMsg2" class="warning">{{errorMsg2}}</div>
+      <div>
+        <button type="button" (click)="login()" class="sumbit" [disabled]="errorMsg1 || errorMsg2">Login</button>
+      </div>
+      <div class="withoutAcount">
+        <span>No account?</span>
+        <a routerLink="/user/register" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Register</a>
+      </div>
+      <div *ngIf="loginResult" class="loginResult">
+          {{ alert?.msg }}
+      </div>
+    </div>
+<!--</div>-->
