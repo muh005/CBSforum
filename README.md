@@ -24,7 +24,7 @@ Sutianyi Wen - Developer
 Zeju Li - Developer  
 Bo Hu - Database manager  
 
-## Website Structure - MEAN
+## Website structure - MEAN
 M - MongoDB is the leading NoSQL database, empowering businesses to be more agile and scalable.  
 E - Express is a minimal and flexible node.js web application framework, providing a robust set  
 of features for building single and multi-page, and hybrid web applications.  
