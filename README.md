@@ -1,5 +1,5 @@
 # CBSforum
-
+http://forums.ucsdcbs.com/
 ## Introduction
 Chinese Business Society is a business society which is dedicated in providing UCSD students, who are interested in 
 the growing business fields, especially in Finance, Consulting, Investment Banking and Accounting Careers, with broad 
@@ -23,6 +23,9 @@ Vincent Li - Developer
 Sutianyi Wen - Developer  
 Zeju Li - Developer  
 Bo Hu - Database manager  
+Zihao Zhou - Technology support
+Jiawei Tang - Technology support
+Yuting Han - Technology support
 
 ## Special thanks:
 Zichao Wu  
