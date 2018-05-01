@@ -23,9 +23,9 @@ Vincent Li - Developer
 Sutianyi Wen - Developer  
 Zeju Li - Developer  
 Bo Hu - Database manager  
-Zihao Zhou - Technology support
-Jiawei Tang - Technology support
-Yuting Han - Technology support
+Zihao Zhou - Technology support  
+Jiawei Tang - Technology support  
+Yuting Han - Technology support  
 
 ## Special thanks:
 Zichao Wu  
